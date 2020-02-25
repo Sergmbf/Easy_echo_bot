@@ -7,9 +7,9 @@ logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     filename='bot.log'
                     )
 
-
+# PROXY = dict
 def greet_user(bot, update):
-    print('Вызван /start')
+    text = 'Вызван /start'
     print(text)
     update.message.reply_text(text)
 
@@ -19,7 +19,7 @@ def talk_to_me(bot, update):
     update.message.reply_text(user_text)
 
 def main():
-    mybot = Updater("API_KEY", request_kwargs = PROXY )
+    mybot = Updater("API_KEY", request_kwargs = setting.PROXY )
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
